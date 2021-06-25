@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <!-- Trigger the modal with a button -->
+        <!-- Modal -->
+        <div class="modal show" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a href="~/@ViewBag.ControllerName"  class="close" data-dismiss="modal">&times;</a>
+                        <h4 class="modal-title">@ViewBag.ModalTitle</h4>
+                    </div>
+                    <div class="modal-body">
+                        @RenderBody()
+                    </div>
+                    <div class="modal-footer">
+                        <a href="~/@ViewBag.ControllerName" class="btn btn-default" data-dismiss="modal">Kapat</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        $(window).load(function () {
+            $('#myModal').modal('show');
+        });
+
+    </script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+﻿@using EntityLayer.Concrete
+@model List<Writer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+
+
+@*<a class="btn btn-primary mt-2 mb-2 add text-white font-weight-bold" data-toggle="modal" data-addcategoryids="/AdminCategory/AddCategory" data-target="#myModal">Kategori Ekle</a>*@
+<a class="btn btn-primary mt-2 mb-2 add text-white font-weight-bold" href="/Writer/AddWriter">Yazar Ekle</a>
+<table class="table table-bordered" id="TblWriter">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Yazar Adı</th>
+            <th>Yazar Soyad</th>
+            <th>Mail</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var writer in Model)
+        {
+        <tr>
+            <td class="td">@writer.WriterID</td>
+            <td class="td">@writer.WriterName</td>
+            <td class="td">@writer.WriterSurname</td>
+            <td class="td">@writer.WriterMail</td>
+
+            <td>
+                <a class="btn btn-success mt-2 mb-2 add text-white font-weight-bold" href="/Writer/EditWriter/@writer.WriterID">Güncelle</a>
+
+            </td>
+            <td>
+                <a href="#" class="btn btn-danger text-white font-weight-bold rounded deleteWriter" data-writerid="@writer.WriterID">Sil</a>
+
+            </td>
+         
+
+        </tr>
+        }
+
+    </tbody>
+</table>
+
+
+<div class="container">
+
+    <!-- Trigger the modal with a button -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#TblWriter').DataTable({
+                "initComplete": function () {
+                    var api = this.api();
+                    api.$('.td').click(function () {
+                        api.search(this.innerHTML).draw();
+                    });
+                }
+            });
+        });
+
+
+   
+
+        $('#TblWriter tbody').on('click', '.deleteWriter', function () {
+            var sonuc = confirm("Kayıt Silinsin Mi ?");
+            if (sonuc) {
+                var writerId = $(this).data("writerid");
+                $.ajax({
+                    type: "POST",
+                    url: "/Writer/DeleteWriter/" + writerId,
+                    success: function () {
+                        alert("Kayıt Silindi");
+                        window.location.replace("/Writer/Index/");
+                    },
+                    error: function () {
+                        alert("Kayıt Silme Sırasında Hata Oluştu !");
+                    }
+                });
+            }
+            else {
+
+            }
+        });
+
+
+
+       
+
+    </script>
+}

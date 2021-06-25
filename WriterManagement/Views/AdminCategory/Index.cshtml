@@ -1,0 +1,175 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+
+
+@*<a class="btn btn-primary mt-2 mb-2 add text-white font-weight-bold" data-toggle="modal" data-addcategoryids="/AdminCategory/AddCategory" data-target="#myModal">Kategori Ekle</a>*@
+<a class="btn btn-primary mt-2 mb-2 add text-white font-weight-bold" href="/AdminCategory/AddCategory" >Kategori Ekle</a>
+<table class="table table-bordered" id="TblCategory">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Adı</th>
+            <th>Açıklama</th>
+            <th>Durum</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+            <th>Başlıklar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td class="td">@category.CategoryID</td>
+                <td class="td">@category.CategoryName</td>
+                <td class="td">@category.CategoryDescription</td>
+                <td class="td">@category.CategoryStatus</td>
+                <td>
+                    <a class="btn btn-success mt-2 mb-2 add text-white font-weight-bold" href="/AdminCategory/EditCategory/@category.CategoryID">Güncelle</a>
+
+                </td>
+                <td>
+                    <a href="#" class="btn btn-danger text-white font-weight-bold rounded deleteCategory" data-categoryid="@category.CategoryID">Sil</a>
+
+                </td>
+                <td><a href="@category.CategoryID" class="btn btn-primary">Başlıklar</a></td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+<div class="container">
+
+    <!-- Trigger the modal with a button -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#TblCategory').DataTable({
+                "initComplete": function () {
+                    var api = this.api();
+                    api.$('.td').click(function () {
+                        api.search(this.innerHTML).draw();
+                    });
+                }
+            });
+        });
+
+
+        /*  $(function () {
+              // a tagimizde bulunan .view classımıza click olduğunda
+              $(".add").click(function () {
+                  $(".modal-title").html("Kategori Ekleme");
+                  // data-target dan url mizi al
+
+                  var url = $(this).data("addcategoryids");
+                  // bu urlimizi post et
+                  $.get(url, function (data) { })
+                      //      eğer işlemimiz başarılı bir şekilde gerçekleşirse
+                      .done(function (data) {
+                          //    gelen datayı .modal-body mizin içerise html olarak ekle
+                          $("#myModal .modal-body").html(data);
+                          $.validator.unobtrusive.parse($("#myModal"));
+                          //  sonra da modalimizi göster
+                          $("#myModal").modal("show");
+                      })
+                      //  eğer işlem başarısız olursa
+                      .fail(function () {
+                          // modalımızın bodysine Error! yaz
+                          $("#myModal .modal-body").text("Error!!");
+                          //  sonra da modalimizi göster
+                          $("#myModal").modal("show");
+                      });
+
+
+              });
+          });*/
+
+        $('#TblCategory tbody').on('click', '.deleteCategory', function () {
+            var sonuc = confirm("Kayıt Silinsin Mi ?");
+            if (sonuc) {
+                var categoryId = $(this).data("categoryid");
+                $.ajax({
+                    type: "POST",
+                    url: "/AdminCategory/DeleteCategory/" + categoryId,
+                    success: function () {
+                        alert("Kayıt Silindi");
+                        window.location.replace("/AdminCategory/Index/");
+                    },
+                    error: function () {
+                        alert("Kayıt Silme Sırasında Hata Oluştu !");
+                    }
+                });
+            }
+            else {
+
+            }
+        });
+
+
+
+        //$(function () {
+        //    // a tagimizde bulunan .view classımıza click olduğunda
+        //    $('#TblCategory tbody').on('click', '.categoryView', function () {
+        //        $(".modal-title").html("Kategori Güncelleme");
+        //        // data-target dan url mizi al
+        //        var url = $(this).data("categoryids");
+        //        // bu urlimizi post et
+        //        $.post(url, function (data) { })
+        //            //      eğer işlemimiz başarılı bir şekilde gerçekleşirse
+        //            .done(function (data) {
+        //                //    gelen datayı .modal-body mizin içerise html olarak ekle
+        //                $("#myModal .modal-body").html(data);
+        //                //  sonra da modalimizi göster
+        //                $("#myModal").modal("show");
+        //            })
+        //            //  eğer işlem başarısız olursa
+        //            .fail(function () {
+        //                // modalımızın bodysine Error! yaz
+        //                $("#myModal .modal-body").text("Error!!");
+        //                //  sonra da modalimizi göster
+        //                $("#myModal").modal("show");
+        //            })
+
+        //    });
+        //});
+
+
+    </script>
+}

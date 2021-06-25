@@ -1,0 +1,17 @@
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\bin\Debug\EntityLayer.dll
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\bin\Debug\EntityFramework.dll
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\bin\Debug\EntityLayer.pdb
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\bin\Debug\EntityLayer.dll.config
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\bin\Debug\EntityFramework.xml
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\obj\Debug\BusinessLayer.csprojAssemblyReference.cache
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\obj\Debug\BusinessLayer.csproj.CopyComplete
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\bin\Debug\FluentValidation.dll
+C:\Users\acarm\source\repos\WriterManagement\BusinessLayer\bin\Debug\FluentValidation.xml
