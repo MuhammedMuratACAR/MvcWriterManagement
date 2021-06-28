@@ -1,0 +1,54 @@
+﻿@model EntityLayer.Concrete.Heading
+
+@{
+    Layout = "~/Views/Shared/_ModalLayout.cshtml";
+    ViewBag.ModalTitle = "Başlık Güncelle";
+    ViewBag.ControllerName = "Heading";
+
+}
+
+
+@using (Ajax.BeginForm("EditHeading", "Heading", new AjaxOptions() { HttpMethod = "POST", UpdateTargetId = "frmEmp" }))
+{
+
+    @Html.AntiForgeryToken()
+
+    <span class="alert-danger">
+        @Html.ValidationSummary()
+    </span>
+    <div class="form-group">
+        @Html.Label("Başlık ID")
+        @Html.TextBoxFor(x => x.HeadingID, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.Label("Başlık Adı")
+        @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.HeadingName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Tarih")
+        @Html.TextBoxFor(x => x.HeadingDate, "{0:yyyy-MM-dd}", new { @class = "form-control",@type = "date" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Kategori")
+        @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.categoryValue, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Yazar Adı")
+        @Html.DropDownListFor(x => x.WriterID, (List<SelectListItem>)ViewBag.writerValue, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary rounded text-white font-weight-bold">Kaydet</button>
+    </div>
+
+}
+
+
+@*<form class="form-group" method="post">
+        <input type="text" placeholder="Kategori Adı" class="form-control" name="CategoryName" />
+        <input type="text" placeholder="Açıklama Giriniz" class="form-control" name="CategoryDescription" />
+        <button class="btn btn-primary">Kategori Ekle</button>
+    </form>*@
+

@@ -1,0 +1,92 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Yeni Hakkımızda Yazı Girişi</button>
+
+<table class="table table-bordered" id="TblAbout">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Metin 1</th>
+            <th>Metin 2</th>
+            <th>Görsel 1</th>
+            <th>Görsel 2</th>
+            <th>Aktif Yap</th>
+            <th>Pasif Yap</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="td">@item.AboutID</td>
+                <td class="td">@item.AboutDetails1</td>
+                <td class="td">@item.AboutDetails2</td>
+                <td class="td">@item.AboutImage1</td>
+                <td class="td">@item.AboutImage2</td>
+                <td>
+                    <a class="btn btn-success mt-2 mb-2 add text-white font-weight-bold" href="/About/EditAbout/@item.AboutID">Aktif Yap</a>
+
+                </td>
+                <td>
+                    <a href="#" class="btn btn-danger text-white font-weight-bold rounded deleteAbout" data-aboutid="@item.AboutID">Pasif Yap</a>
+
+                </td>
+
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+<!-- Modal -->
+
+
+@Html.Partial("AboutPartial")
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#TblAbout').DataTable({
+                "initComplete": function () {
+                    var api = this.api();
+                    api.$('.td').click(function () {
+                        api.search(this.innerHTML).draw();
+                    });
+                }
+            });
+        });
+
+
+
+
+        $('#TblAbout tbody').on('click', '.deleteAbout', function () {
+            var sonuc = confirm("Kayıt Silinsin Mi ?");
+            if (sonuc) {
+                var aboutId = $(this).data("aboutid");
+                $.ajax({
+                    type: "POST",
+                    url: "/About/DeleteAbout/" + aboutId,
+                    success: function () {
+                        alert("Kayıt Silindi");
+                        window.location.replace("/About/Index/");
+                    },
+                    error: function () {
+                        alert("Kayıt Silme Sırasında Hata Oluştu !");
+                    }
+                });
+            }
+            else {
+
+            }
+        });
+    </script>
+}

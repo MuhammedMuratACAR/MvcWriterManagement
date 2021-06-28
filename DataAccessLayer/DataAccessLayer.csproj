@@ -56,18 +56,53 @@
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
+    <Compile Include="Concrete\Repositories\HeadingRepository.cs" />
     <Compile Include="Concrete\Repositories\WriterRepository.cs" />
     <Compile Include="EntityFramework\EfAboutDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="EntityFramework\EfMessageDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
+    <Compile Include="Migrations\202106252228165_AddColumnToWriter.cs" />
+    <Compile Include="Migrations\202106252228165_AddColumnToWriter.designer.cs">
+      <DependentUpon>202106252228165_AddColumnToWriter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106252316022_AddColumnToWriterTitle.cs" />
+    <Compile Include="Migrations\202106252316022_AddColumnToWriterTitle.designer.cs">
+      <DependentUpon>202106252316022_AddColumnToWriterTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106260958121_ImageChangeSizeToWriterImage.cs" />
+    <Compile Include="Migrations\202106260958121_ImageChangeSizeToWriterImage.designer.cs">
+      <DependentUpon>202106260958121_ImageChangeSizeToWriterImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106261008194_AddColumnToWriterStatus.cs" />
+    <Compile Include="Migrations\202106261008194_AddColumnToWriterStatus.designer.cs">
+      <DependentUpon>202106261008194_AddColumnToWriterStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106261420159_AddColumnToContentStatus.cs" />
+    <Compile Include="Migrations\202106261420159_AddColumnToContentStatus.designer.cs">
+      <DependentUpon>202106261420159_AddColumnToContentStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106261443117_AddColumnToHeadingStatus.cs" />
+    <Compile Include="Migrations\202106261443117_AddColumnToHeadingStatus.designer.cs">
+      <DependentUpon>202106261443117_AddColumnToHeadingStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106271139181_AddTableMessage.cs" />
+    <Compile Include="Migrations\202106271139181_AddTableMessage.designer.cs">
+      <DependentUpon>202106271139181_AddTableMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106272239123_AddColumnToContactDate.cs" />
+    <Compile Include="Migrations\202106272239123_AddColumnToContactDate.designer.cs">
+      <DependentUpon>202106272239123_AddColumnToContactDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -81,7 +116,32 @@
       <Name>EntityLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202106252228165_AddColumnToWriter.resx">
+      <DependentUpon>202106252228165_AddColumnToWriter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106252316022_AddColumnToWriterTitle.resx">
+      <DependentUpon>202106252316022_AddColumnToWriterTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106260958121_ImageChangeSizeToWriterImage.resx">
+      <DependentUpon>202106260958121_ImageChangeSizeToWriterImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106261008194_AddColumnToWriterStatus.resx">
+      <DependentUpon>202106261008194_AddColumnToWriterStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106261420159_AddColumnToContentStatus.resx">
+      <DependentUpon>202106261420159_AddColumnToContentStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106261443117_AddColumnToHeadingStatus.resx">
+      <DependentUpon>202106261443117_AddColumnToHeadingStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106271139181_AddTableMessage.resx">
+      <DependentUpon>202106271139181_AddTableMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106272239123_AddColumnToContactDate.resx">
+      <DependentUpon>202106272239123_AddColumnToContactDate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

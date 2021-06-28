@@ -14,7 +14,7 @@
 
 
 @*<a class="btn btn-primary mt-2 mb-2 add text-white font-weight-bold" data-toggle="modal" data-addcategoryids="/AdminCategory/AddCategory" data-target="#myModal">Kategori Ekle</a>*@
-<a class="btn btn-primary mt-2 mb-2 add text-white font-weight-bold" href="/Writer/AddWriter">Yazar Ekle</a>
+<!--<a class="btn btn-primary mt-2 mb-2 add text-white font-weight-bold" href="/Writer/AddWriter">Yazar Ekle</a>
 <table class="table table-bordered" id="TblWriter">
     <thead>
         <tr>
@@ -29,38 +29,38 @@
     <tbody>
         @foreach (var writer in Model)
         {
-        <tr>
-            <td class="td">@writer.WriterID</td>
-            <td class="td">@writer.WriterName</td>
-            <td class="td">@writer.WriterSurname</td>
-            <td class="td">@writer.WriterMail</td>
+            <tr>
+                <td class="td">@writer.WriterID</td>
+                <td class="td">@writer.WriterName</td>
+                <td class="td">@writer.WriterSurname</td>
+                <td class="td">@writer.WriterMail</td>
 
-            <td>
-                <a class="btn btn-success mt-2 mb-2 add text-white font-weight-bold" href="/Writer/EditWriter/@writer.WriterID">Güncelle</a>
+                <td>
+                    <a class="btn btn-success mt-2 mb-2 add text-white font-weight-bold" href="/Writer/EditWriter/@writer.WriterID">Güncelle</a>
 
-            </td>
-            <td>
-                <a href="#" class="btn btn-danger text-white font-weight-bold rounded deleteWriter" data-writerid="@writer.WriterID">Sil</a>
+                </td>
+                <td>
+                    <a href="#" class="btn btn-danger text-white font-weight-bold rounded deleteWriter" data-writerid="@writer.WriterID">Sil</a>
 
-            </td>
-         
+                </td>
 
-        </tr>
+
+            </tr>
         }
 
     </tbody>
 </table>
 
 
-<div class="container">
+<div class="container">-->
 
     <!-- Trigger the modal with a button -->
     <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
+    <!--<div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">-->
 
             <!-- Modal content-->
-            <div class="modal-content">
+            <!--<div class="modal-content">
                 <div class="modal-header">
 
                     <h4 class="modal-title"></h4>
@@ -76,7 +76,61 @@
         </div>
     </div>
 
-</div>
+</div>-->
+
+
+
+
+
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="card card-solid">
+            <div class="card-body pb-0">
+                <div class="row d-flex align-items-stretch">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                            <div class="card bg-light">
+                                <div class="card-header text-muted border-bottom-0">
+                                    @item.WriterTitle
+                                </div>
+                                <div class="card-body pt-0">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <h2 class="lead"><b>@item.WriterName @item.WriterSurname</b></h2>
+                                            <p class="text-muted text-sm"><b>Hakkında : </b> @item.WriterAbout</p>
+                                            <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Mail: @item.WriterMail</li>
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="col-5 text-center">
+                                            <img src="~/AdminLTE-3.0.4/dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="text-right">
+                                        <a href="#" class="btn btn-sm bg-teal">
+                                            <i class="fas fa-comments"></i> Yazarın Başlıkları
+                                        </a>
+                                        <a href="/Writer/EditWriter/@item.WriterID" class="btn btn-sm btn-primary">
+                                            <i class="fas fa-user"></i> Profili Düzenle
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- /.card -->
+    </section>
+ 
+
+
 
 @section scripts {
     <script>
@@ -92,7 +146,7 @@
         });
 
 
-   
+
 
         $('#TblWriter tbody').on('click', '.deleteWriter', function () {
             var sonuc = confirm("Kayıt Silinsin Mi ?");
@@ -117,7 +171,7 @@
 
 
 
-       
+
 
     </script>
 }

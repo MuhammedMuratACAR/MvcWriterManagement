@@ -13,3 +13,12 @@ C:\Users\acarm\source\repos\WriterManagement\DataAccessLayer\bin\Debug\EntityFra
 C:\Users\acarm\source\repos\WriterManagement\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\acarm\source\repos\WriterManagement\DataAccessLayer\obj\Debug\DataAccessLayer.csprojAssemblyReference.cache
 C:\Users\acarm\source\repos\WriterManagement\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+C:\Users\acarm\source\repos\WriterManagement\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.AddColumnToWriter.resources
+C:\Users\acarm\source\repos\WriterManagement\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.GenerateResource.cache
+C:\Users\acarm\source\repos\WriterManagement\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.AddColumnToWriterTitle.resources
+C:\Users\acarm\source\repos\WriterManagement\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.ImageChangeSizeToWriterImage.resources
+C:\Users\acarm\source\repos\WriterManagement\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.AddColumnToWriterStatus.resources
+C:\Users\acarm\source\repos\WriterManagement\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.AddColumnToContentStatus.resources
+C:\Users\acarm\source\repos\WriterManagement\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.AddColumnToHeadingStatus.resources
+C:\Users\acarm\source\repos\WriterManagement\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.AddTableMessage.resources
+C:\Users\acarm\source\repos\WriterManagement\DataAccessLayer\obj\Debug\DataAccessLayer.Migrations.AddColumnToContactDate.resources
